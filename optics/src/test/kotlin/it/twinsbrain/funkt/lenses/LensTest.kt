@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 
 private val person = Person(
   name = "Paolo",
-  address = Address(streetName = "Carrer Diputacion", number = "42", city = "Barcelona")
+  address = Address(streetName = "Gran Via", number = "42", city = "Barcelona")
 )
 
 class LensTest {
@@ -20,7 +20,7 @@ class LensTest {
     assertThat(Person.name.set("Semplice", person)).isEqualTo(
       Person(
         name = "Semplice",
-        address = Address(streetName = "Carrer Diputacion", number = "42", city = "Barcelona")
+        address = Address(streetName = "Gran Via", number = "42", city = "Barcelona")
       )
     )
   }
@@ -37,7 +37,7 @@ class AddressNumberTest {
     assertThat(Person.address.number.set("34", person)).isEqualTo(
       Person(
         name = "Paolo",
-        address = Address(streetName = "Carrer Diputacion", number = "34", city = "Barcelona")
+        address = Address(streetName = "Gran Via", number = "34", city = "Barcelona")
       )
     )
   }
@@ -46,7 +46,7 @@ class AddressNumberTest {
 class AddressStreetNameTest {
   @Test
   fun `combined get`() {
-    assertThat(Person.address.streetName.get(person)).isEqualTo("Carrer Diputacion")
+    assertThat(Person.address.streetName.get(person)).isEqualTo("Gran Via")
   }
 
   @Test
@@ -71,7 +71,7 @@ class CityTest {
     assertThat(Person.address.city.set("Tenerife", person)).isEqualTo(
       Person(
         name = "Paolo",
-        address = Address(streetName = "Carrer Diputacion", number = "42", city = "Tenerife")
+        address = Address(streetName = "Gran Via", number = "42", city = "Tenerife")
       )
     )
   }
