@@ -27,12 +27,12 @@ class LensTest {
 
   @Test
   fun `combined get`() {
-    assertThat(Person.address.combine(Address.city).get(person)).isEqualTo("Barcelona")
+    assertThat(Person.address.city.get(person)).isEqualTo("Barcelona")
   }
 
   @Test
   fun `combined set`() {
-    assertThat(Person.address.combine(Address.city).set("Tenerife", person)).isEqualTo(
+    assertThat(Person.address.city.set("Tenerife", person)).isEqualTo(
       Person(
         name = "Paolo",
         address = Address(streetName = "Carrer Diputacion", number = "42", city = "Tenerife")
