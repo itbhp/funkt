@@ -10,6 +10,7 @@ interface Lens<S, T> {
   fun <A> combine(l2: Lens<T, A>): Lens<S, A> {
     val self = this
     return object : Lens<S, A> {
+
       override fun get(s: S): A {
         val function: (s: S) -> A = self::get andThen l2::get
         return function(s)

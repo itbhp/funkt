@@ -16,6 +16,5 @@ data class Person(val name:String, val address: Address) {
       val number: Lens<Person, String> = this.combine(Address.number)
       val city: Lens<Person, String> = this.combine(Address.city)
     }
-
   }
 }
