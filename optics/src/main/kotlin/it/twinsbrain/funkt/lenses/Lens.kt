@@ -15,9 +15,9 @@ interface Lens<S, T> {
         return function(s)
       }
 
-      override fun set(newA: A, s: S): S {
-        val newT: T = l2.set(newA, self.get(s))
-        return self.set(newT, s)
+      override fun set(newT: A, s: S): S {
+        val newT1 = l2.set(newT, self.get(s))
+        return self.set(newT1, s)
       }
     }
   }
