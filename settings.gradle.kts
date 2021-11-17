@@ -8,4 +8,4 @@
  */
 
 rootProject.name = "funkt"
-include("app", "list", "utilities")
+include("core", "optics")
