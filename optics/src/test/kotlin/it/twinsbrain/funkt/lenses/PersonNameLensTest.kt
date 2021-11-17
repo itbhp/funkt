@@ -8,7 +8,7 @@ private val person = Person(
   address = Address(streetName = "Gran Via", number = "42", city = "Barcelona")
 )
 
-class LensTest {
+class PersonNameLensTest {
 
   @Test
   fun get() {
