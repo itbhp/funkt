@@ -3,12 +3,12 @@ package it.twinsbrain.funkt.lenses
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class LensTest {
+private val person = Person(
+  name = "Paolo",
+  address = Address(streetName = "Carrer Diputacion", number = "42", city = "Barcelona")
+)
 
-  private val person = Person(
-    name = "Paolo",
-    address = Address(streetName = "Carrer Diputacion", number = "42", city = "Barcelona")
-  )
+class LensTest {
 
   @Test
   fun get() {
@@ -24,7 +24,43 @@ class LensTest {
       )
     )
   }
+}
 
+class AddressNumberTest {
+  @Test
+  fun `combined get`() {
+    assertThat(Person.address.number.get(person)).isEqualTo("42")
+  }
+
+  @Test
+  fun `combined set`() {
+    assertThat(Person.address.number.set("34", person)).isEqualTo(
+      Person(
+        name = "Paolo",
+        address = Address(streetName = "Carrer Diputacion", number = "34", city = "Barcelona")
+      )
+    )
+  }
+}
+
+class AddressStreetNameTest {
+  @Test
+  fun `combined get`() {
+    assertThat(Person.address.streetName.get(person)).isEqualTo("Carrer Diputacion")
+  }
+
+  @Test
+  fun `combined set`() {
+    assertThat(Person.address.streetName.set("Carrer Villamari", person)).isEqualTo(
+      Person(
+        name = "Paolo",
+        address = Address(streetName = "Carrer Villamari", number = "42", city = "Barcelona")
+      )
+    )
+  }
+}
+
+class CityTest {
   @Test
   fun `combined get`() {
     assertThat(Person.address.city.get(person)).isEqualTo("Barcelona")
