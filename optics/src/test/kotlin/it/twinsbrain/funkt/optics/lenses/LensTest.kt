@@ -1,4 +1,4 @@
-package it.twinsbrain.funkt.lenses
+package it.twinsbrain.funkt.optics.lenses
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test

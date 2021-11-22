@@ -1,4 +1,6 @@
-package it.twinsbrain.funkt.lenses
+package it.twinsbrain.funkt.optics.lenses
+
+import it.twinsbrain.funkt.optics.Lens
 
 data class Address(val streetName: String, val number: String, val city: String) {
   companion object {

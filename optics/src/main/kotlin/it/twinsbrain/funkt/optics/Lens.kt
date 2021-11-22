@@ -1,4 +1,4 @@
-package it.twinsbrain.funkt.lenses
+package it.twinsbrain.funkt.optics
 
 import it.twinsbrain.funkt.functions.FunctionsExtensions.andThen
 
