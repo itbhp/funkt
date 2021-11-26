@@ -17,7 +17,7 @@ class PersonNameLensTest {
 
   @Test
   fun set() {
-    assertThat(Person.name.set("Semplice", person)).isEqualTo(
+    assertThat(Person.name.set(person, "Semplice")).isEqualTo(
       Person(
         name = "Semplice",
         address = Address(streetName = "Gran Via", number = "42", city = "Barcelona")
@@ -34,7 +34,7 @@ class AddressNumberTest {
 
   @Test
   fun `combined set`() {
-    assertThat(Person.address.number.set("34", person)).isEqualTo(
+    assertThat(Person.address.number.set(person, "34")).isEqualTo(
       Person(
         name = "Paolo",
         address = Address(streetName = "Gran Via", number = "34", city = "Barcelona")
@@ -51,7 +51,7 @@ class AddressStreetNameTest {
 
   @Test
   fun `combined set`() {
-    assertThat(Person.address.streetName.set("Carrer Villamari", person)).isEqualTo(
+    assertThat(Person.address.streetName.set(person, "Carrer Villamari")).isEqualTo(
       Person(
         name = "Paolo",
         address = Address(streetName = "Carrer Villamari", number = "42", city = "Barcelona")
@@ -68,7 +68,7 @@ class CityTest {
 
   @Test
   fun `combined set`() {
-    assertThat(Person.address.city.set("Tenerife", person)).isEqualTo(
+    assertThat(Person.address.city.set(person, "Tenerife")).isEqualTo(
       Person(
         name = "Paolo",
         address = Address(streetName = "Gran Via", number = "42", city = "Tenerife")
