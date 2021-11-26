@@ -14,6 +14,16 @@ subprojects {
     mavenLocal()
     mavenCentral()
   }
+  tasks {
+    test {
+      testLogging {
+        events("passed", "skipped", "failed")
+      }
+      reports {
+        html.required.set(true)
+      }
+    }
+  }
 }
 
 repositories {
