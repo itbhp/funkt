@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test
 
 class AndThenTest {
 
-  private fun asString(n: Int): String = n.toString()
-  private fun takeTwoChars(n: String): String = n.take(2)
+    private fun asString(n: Int): String = n.toString()
+    private fun takeTwoChars(n: String): String = n.take(2)
 
-  @Test
-  fun `should work`() {
-    val result = (::asString andThen ::takeTwoChars)(100)
-    assertThat(result).isEqualTo("10")
-    assertThat(result).isEqualTo(takeTwoChars(asString(100)))
-  }
+    @Test
+    fun `should work`() {
+        val result = (::asString andThen ::takeTwoChars)(100)
+        assertThat(result).isEqualTo("10")
+        assertThat(result).isEqualTo(takeTwoChars(asString(100)))
+    }
 }
