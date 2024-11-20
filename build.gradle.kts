@@ -1,6 +1,6 @@
 plugins {
     val pluginsVersions = object {
-        val kotlin = "1.5.31"
+        val kotlin = "1.9.20"
         val ktLint = "10.2.0"
         val detekt = "1.18.1"
         val owasp = "6.4.1.1"
@@ -74,9 +74,6 @@ subprojects {
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
-        sourceCompatibility = JavaVersion.VERSION_11.toString()
-        targetCompatibility = JavaVersion.VERSION_11.toString()
-
         kotlinOptions {
             jvmTarget = "11"
         }
