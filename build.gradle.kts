@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.jvm)
 }
 
-val javaVersion: String? = libs.versions.java.get()
+val javaVersion: String = libs.versions.java.get()!!
 
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
@@ -39,7 +39,7 @@ subprojects {
 
     tasks.withType<KotlinCompile>().all {
         compilerOptions {
-            jvmTarget.set(JvmTarget.fromTarget(javaVersion!!))
+            jvmTarget.set(JvmTarget.fromTarget(javaVersion))
             freeCompilerArgs.add("-Xskip-metadata-version-check")
         }
     }
