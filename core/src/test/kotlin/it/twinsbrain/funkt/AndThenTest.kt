@@ -5,8 +5,8 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class AndThenTest {
-
     private fun asString(n: Int): String = n.toString()
+
     private fun takeTwoChars(n: String): String = n.take(2)
 
     @Test

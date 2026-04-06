@@ -15,7 +15,10 @@ class IsoTest {
     }
 }
 
-data class Point(val x: Int, val y: Int)
+data class Point(
+    val x: Int,
+    val y: Int,
+)
 
 class IsoPointPair : Iso<Point, Pair<Int, Int>> {
     override fun get(source: Point): Pair<Int, Int> = source.x to source.y

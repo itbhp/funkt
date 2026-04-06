@@ -7,29 +7,32 @@ import io.kotest.property.arbitrary.flatMap
 import io.kotest.property.arbitrary.int
 import io.kotest.property.arbitrary.map
 import io.kotest.property.arbitrary.string
-import io.kotest.property.forAll
+import io.kotest.property.checkAll
 
-class LensPropertiesTest : StringSpec({
-    "modify" {
-        forAll(personGenerator) { person ->
-            val lens = Person.address.number
-            val previousNumber = person.address.number
-            val newPerson = lens.modify(person) { "43" }
-            person.address.number == previousNumber &&
-                newPerson.address.number == "43"
+class LensPropertiesTest :
+    StringSpec({
+        "modify" {
+            checkAll(personGenerator) { person ->
+                val lens = Person.address.number
+                val previousNumber = person.address.number
+                val newPerson = lens.modify(person) { "43" }
+                person.address.number == previousNumber &&
+                    newPerson.address.number == "43"
+            }
+        }
+    })
+
+private val addressGenerator =
+    arbitrary {
+        val streetName = Arb.string(minSize = 1, maxSize = 30).bind()
+        val city = Arb.string(minSize = 1, maxSize = 30).bind()
+        val number = Arb.int(1, 400).bind()
+        Address(streetName, number.toString(), city)
+    }
+
+private val personGenerator =
+    addressGenerator.flatMap { address ->
+        Arb.string(minSize = 1, maxSize = 30).map { name ->
+            Person(name, address)
         }
     }
-})
-
-private val addressGenerator = arbitrary {
-    val streetName = Arb.string(size = 30).bind()
-    val city = Arb.string(size = 30).bind()
-    val number = Arb.int(min = 1, max = 400).bind()
-    Address(streetName, number.toString(), city)
-}
-
-private val personGenerator = addressGenerator.flatMap { address ->
-    Arb.string(size = 30).map { name ->
-        Person(name, address)
-    }
-}

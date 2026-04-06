@@ -5,7 +5,10 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class CurriedTest {
-    private fun sum(x: Int, y: Int): Int = x + y
+    private fun sum(
+        x: Int,
+        y: Int,
+    ): Int = x + y
 
     @Test
     internal fun `curried working`() {

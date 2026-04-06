@@ -9,3 +9,11 @@
 
 rootProject.name = "funkt"
 include("core", "optics")
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs") {
+            from(files("gradle/libs.version.toml"))
+        }
+    }
+}
